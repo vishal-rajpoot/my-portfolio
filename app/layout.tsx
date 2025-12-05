@@ -1,8 +1,9 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Space_Grotesk, Inter } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
+import type React from "react";
+import type { Metadata } from "next";
+import { Space_Grotesk, Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageProvider } from "@/contexts/language-context";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -10,13 +11,13 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   preload: true,
   fallback: ["system-ui", "arial"],
-})
+});
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-})
+});
 
 export const metadata: Metadata = {
   title: "Vishal Rajput - Senior Full-Stack Engineer",
@@ -75,23 +76,49 @@ export const metadata: Metadata = {
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} antialiased`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} antialiased`}
+      suppressHydrationWarning
+    >
       <head>
-        <link rel="preload" href="/images/Vishal Rajputportfolioimage.png" as="image" type="image/png" />
-        <link rel="preload" href="/images/profile.jpg" as="image" type="image/jpeg" />
-        <link rel="preload" href="/images/background.jpg" as="image" type="image/jpeg" />
+        <link
+          rel="preload"
+          href="/images/Vishal Rajputportfolioimage.png"
+          as="image"
+          type="image/png"
+        />
+        <link
+          rel="preload"
+          href="/images/profile.jpg"
+          as="image"
+          type="image/jpeg"
+        />
+        <link
+          rel="preload"
+          href="/images/background.jpg"
+          as="image"
+          type="image/jpeg"
+        />
         <link rel="dns-prefetch" href="https://medium.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
         <script
@@ -106,11 +133,16 @@ export default function RootLayout({
                   name: "Vishal Rajput",
                   description:
                     "Senior Full-Stack Engineer with 4.5+ years of experience in React, Next.js, Node.js, AWS, and scalable architecture.",
-                  jobTitle: ["Senior Full-Stack Engineer", "React Developer", "Next.js Expert"],
+                  jobTitle: [
+                    "Senior Full-Stack Engineer",
+                    "React Developer",
+                    "Next.js Expert",
+                  ],
                   nationality: "India",
                   birthPlace: "Delhi, India",
                   url: "https://Vishal Rajputportfolio.com",
-                  image: "https://Vishal Rajputportfolio.com/images/profile.jpg",
+                  image:
+                    "https://Vishal Rajputportfolio.com/images/profile.jpg",
                   sameAs: [
                     "https://www.linkedin.com/in/Vishal Rajputengineer/",
                     "https://medium.com/@Vishal Rajputengineer",
@@ -133,7 +165,8 @@ export default function RootLayout({
                   hasOccupation: {
                     "@type": "Occupation",
                     name: "Senior Full-Stack Engineer",
-                    description: "Specializes in building scalable web applications using modern technologies.",
+                    description:
+                      "Specializes in building scalable web applications using modern technologies.",
                   },
                 },
                 {
@@ -141,14 +174,16 @@ export default function RootLayout({
                   "@id": "https://Vishal Rajputportfolio.com/#website",
                   url: "https://Vishal Rajputportfolio.com",
                   name: "Vishal Rajput Portfolio",
-                  description: "Portfolio professional of Vishal Rajput - Senior Full-Stack Engineer",
+                  description:
+                    "Portfolio professional of Vishal Rajput - Senior Full-Stack Engineer",
                   publisher: {
                     "@id": "https://Vishal Rajputportfolio.com/#person",
                   },
                   inLanguage: ["en-US"],
                   potentialAction: {
                     "@type": "SearchAction",
-                    target: "https://Vishal Rajputportfolio.com/?s={search_term_string}",
+                    target:
+                      "https://Vishal Rajputportfolio.com/?s={search_term_string}",
                     "query-input": "required name=search_term_string",
                   },
                 },
@@ -160,10 +195,15 @@ export default function RootLayout({
         <meta name="robots" content="index, follow" />
       </head>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

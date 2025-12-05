@@ -72,9 +72,9 @@ export const metadata: Metadata = {
   },
   generator: "vishal-rajput-portfolio-v1.0",
   icons: {
-    icon: "/",
-    shortcut: "",
-    apple: "",
+    icon: "/ideas.png",
+    shortcut: "/ideas.png",
+    apple: "/ideas.png",
   },
 };
 

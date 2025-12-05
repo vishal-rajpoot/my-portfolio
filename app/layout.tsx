@@ -70,11 +70,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://Vishal Rajputportfolio.com",
   },
-  generator: "v0.app",
+  generator: "vishal-rajput-portfolio-v1.0",
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/",
+    shortcut: "",
+    apple: "",
   },
 };
 
